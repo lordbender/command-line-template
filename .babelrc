@@ -1,0 +1,13 @@
+{
+    "presets": ["es2015", "es2017", "stage-0"],
+    "plugins": [
+        "transform-decorators-legacy",
+        ["transform-regenerator", {
+          "asyncGenerators": false,
+          "generators": false,
+          "async": false
+        }]
+      ],
+    "compact" : "auto"
+  }
+  
