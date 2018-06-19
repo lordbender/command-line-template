@@ -14,7 +14,10 @@ class BaseService {
 
       if (method === "put" || method === "post") config.body = body;
 
-      return await fetch(url, config);
+      const res = await fetch(url, config);
+      const json = await res.json();
+
+      return json;
     } catch (ex) {
       console.error(ex);
       return ex;

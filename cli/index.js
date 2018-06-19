@@ -1,3 +1,5 @@
+import "babel-polyfill";
+
 import program from "commander";
 import PhotosService from "./services/photosService";
 
@@ -10,6 +12,6 @@ program
 
 if (program.fetchPhotos) {
   photosService.list().then(data => {
-    console.log(data);
+    data.forEach(photo => console.log(`Photo URL => ${photo.url}`));
   });
 }

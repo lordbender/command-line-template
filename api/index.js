@@ -38,7 +38,10 @@ class App {
       this.connections.push(connection);
       connection.on(
         "close",
-        () => (connections = connections.filter(curr => curr !== connection))
+        () =>
+          (this.connections = this.connections.filter(
+            curr => curr !== connection
+          ))
       );
     });
 
@@ -62,7 +65,7 @@ class App {
     }, 10000);
 
     this.connections.forEach(curr => curr.end());
-    setTimeout(() => connections.forEach(curr => curr.destroy()), 5000);
+    setTimeout(() => this.connections.forEach(curr => curr.destroy()), 5000);
   }
 }
 

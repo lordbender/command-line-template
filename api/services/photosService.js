@@ -1,13 +1,13 @@
 const { BaseService } = require("./baseService");
 
-class PhotosServcie extends BaseService {
+class PhotosService extends BaseService {
   async list() {
-    return await this.get("http://jsonplaceholder.typicode.com/photos");
+    return await this.get("https://jsonplaceholder.typicode.com/photos");
   }
 
-  async get(id) {
-    return await this.get(`http://jsonplaceholder.typicode.com/photos/${id}`);
+  async getById(id) {
+    return await this.get(`https://jsonplaceholder.typicode.com/photos/${id}`);
   }
 }
 
-module.exports.PhotosServcie = PhotosServcie;
+module.exports.PhotosService = PhotosService;
