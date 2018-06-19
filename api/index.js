@@ -1,11 +1,13 @@
 const express = require("express");
+const Routes = require("./routes").Routes;
+
 require("dotenv").config();
 
-const { HOST, PORT, BASE_ROUTE } = process.env;
+const { HOST = "localhost", PORT = 3000, BASE_ROUTE } = process.env;
 
 class App {
   constructor() {
-    this.baseRoute = BASE_ROUTE || "/utils/api/v1";
+    this.baseRoute = BASE_ROUTE || "/api/v1";
   }
 
   init() {
@@ -18,7 +20,8 @@ class App {
   middlewareConfig(app) {}
 
   routesConfig(app) {
-    app.get("/", (req, res) => res.send("Cool"));
+    const routes = new Routes(this.baseRoute, app);
+    routes.init();
   }
 
   startServer(app) {
